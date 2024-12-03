@@ -1,6 +1,12 @@
 import Image from "next/image";
-import { IoAttachSharp, IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
+import {
+  IoAttachSharp,
+  IoBrowsersOutline,
+  IoCalculator,
+  IoLogoReact,
+} from "react-icons/io5";
 import SidebarMenuItems from "./SidebarMenuItems";
+import { CgPokemon } from "react-icons/cg";
 
 const menuItems = [
   {
@@ -17,9 +23,15 @@ const menuItems = [
   },
   {
     path: "/dashboard/profile",
-    icon: <IoAttachSharp size={40}  />,
+    icon: <IoAttachSharp size={40} />,
     title: "Profile",
     subTitle: "Profile jaz",
+  },
+  {
+    path: "/dashboard/pokemons",
+    icon: <CgPokemon size={40} />,
+    title: "Pokemons",
+    subTitle: "Estaticos",
   },
 ];
 
