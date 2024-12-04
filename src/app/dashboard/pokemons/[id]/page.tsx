@@ -7,6 +7,21 @@ interface Props {
   params: { id: string };
 }
 
+//funcion para generar 151 paginas de cada pokemon -solo se ejecuta en build-time
+export async function generateStaticParams() {
+
+  const static151Pokemons = Array.from({length:151}).map((v,i)=>`${i+1}`)
+
+  return static151Pokemons.map(id =>({
+    id:id
+  }))
+/*   return [
+    {id:"1"},
+
+  ] */
+  
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     
@@ -30,7 +45,11 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
     const pokemon = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${id}`,
   
-      { cache: "force-cache" }
+      { /* cache: "force-cache" , */ 
+        next:{
+          revalidate:60*60*30*6 // revalidar la informacion cada 6 meses- de los pokemones/ generas las paginas segun vayan creciendo ene le tiempo
+        }
+      }
     ).then((response) => response.json());
     console.log("se cargo", pokemon.name);
     return pokemon;
