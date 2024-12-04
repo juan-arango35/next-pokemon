@@ -18,7 +18,7 @@ const getPokemons = async (
   return pokemons;
 };
 
-const PokemonsPAge = async () => {
+const PokemonsPage = async () => {
   const pokemons = await getPokemons(151);
 
   return (
@@ -26,9 +26,9 @@ const PokemonsPAge = async () => {
       <span className="text-5xl my-2">
         Listado de Pokemons <small>Estatico</small>{" "}
       </span>
-      <PokemonGrid pokemons={pokemons} />
+      <PokemonGrid pokemons={pokemons}  />
     </div>
   );
 };
 
-export default PokemonsPAge;
+export default PokemonsPage;
