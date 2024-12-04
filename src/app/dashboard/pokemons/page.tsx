@@ -1,7 +1,6 @@
-import PokemonGrid from "@/app/pokemons/components/PokemonGrid";
-import { PokemonsResponse } from "@/app/pokemons/interfaces/pokemons-response";
-import { SimplePokemon } from "@/app/pokemons/interfaces/simple-pokemon";
-import Image from "next/image";
+import PokemonGrid from "@/pokemons/components/PokemonGrid";
+import { PokemonsResponse } from "@/pokemons/interfaces/pokemons-response";
+import { SimplePokemon } from "@/pokemons/interfaces/simple-pokemon";
 
 const getPokemons = async (
   limit = 200,
@@ -15,6 +14,7 @@ const getPokemons = async (
     id: pokemon.url.split("/").at(-2)!,
     name: pokemon.name,
   }));
+  /*   throw new Error("Esto es un error que no deberia suceder") */
   return pokemons;
 };
 
@@ -23,9 +23,10 @@ const PokemonsPAge = async () => {
 
   return (
     <div className="flex flex-col">
-      <span className="text-5xl my-2">Listado de Pokemons <small>Estatico</small> </span>
-      <PokemonGrid pokemons={pokemons}/>
-      
+      <span className="text-5xl my-2">
+        Listado de Pokemons <small>Estatico</small>{" "}
+      </span>
+      <PokemonGrid pokemons={pokemons} />
     </div>
   );
 };
