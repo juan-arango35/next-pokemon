@@ -147,3 +147,6 @@ export default async function PokemonPage({ params }: Props) {
     </div>
   );
 }
+
+
+// me que de en el video 70- tengo que verlo

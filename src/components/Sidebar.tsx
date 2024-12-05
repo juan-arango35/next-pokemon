@@ -60,13 +60,13 @@ const Sidebar = () => {
           <span>
             <Image
               className="rounded-full w-8 h-8"
-              src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"
+              src="/perfil.jpg"
               alt="Use Avatar"
               width={50}
               height={50}
             />
           </span>
-          <span className="text-sm md:text-base font-bold">Edward Tompson</span>
+          <span className="text-sm md:text-base font-bold">Juan Arango</span>
         </Link>
       </div>
       <div id="nav" className="w-full px-6">
