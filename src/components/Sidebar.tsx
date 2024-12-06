@@ -29,7 +29,7 @@ const menuItems = [
     subTitle: "Profile jaz",
   },
   {
-    path: "/dashboard/pokemons",
+    path: "/dashboard/pokemon",
     icon: <CgPokemon size={40} />,
     title: "Pokemons",
     subTitle: "Estaticos",
