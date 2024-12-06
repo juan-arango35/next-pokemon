@@ -3,11 +3,13 @@ import {
   IoAttachSharp,
   IoBrowsersOutline,
   IoCalculator,
+  IoDiamondOutline,
   IoLogoReact,
 } from "react-icons/io5";
 import SidebarMenuItems from "./SidebarMenuItems";
 import { CgPokemon } from "react-icons/cg";
 import Link from "next/link";
+
 
 const menuItems = [
   {
@@ -33,6 +35,12 @@ const menuItems = [
     icon: <CgPokemon size={40} />,
     title: "Pokemons",
     subTitle: "Estaticos",
+  },
+  {
+    path: "/dashboard/favoritos",
+    icon: <IoDiamondOutline size={40}/>,
+    title: "Favoritos",
+    subTitle: "redux-toolki",
   },
 ];
 

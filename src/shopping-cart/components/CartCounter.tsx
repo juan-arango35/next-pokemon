@@ -1,22 +1,30 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { addOne, sustractOne } from "@/store/counter/counterSlice";
 import { useState } from "react";
 
-interface ValueProps{
-    value?:number;
+interface ValueProps {
+  value?: number;
 }
 
-const CartCounter = ({value=35}: ValueProps) => {
-  const [count, setCount] = useState(value);
-  function incrementar() {
-    setCount(count + 1);
+const CartCounter = ({ value = 35 }: ValueProps) => {
+  /*   const [count, setCount] = useState(value); */ //eliminamos el contador anterior basico para agregar tolkit;
+
+    function incrementar() {
+      dispatch(addOne())
   }
 
   function decrementar() {
-    setCount(count - 1);
-  }
+    dispatch(sustractOne())
+  } 
+
+  const count = useAppSelector((state) => state.counter.value); // value es el valor incial que colocamos en el counterSlider
+  const dispatch = useAppDispatch();
+
   return (
     <>
-      <span className="text-9xl"> {count}</span>
+      <span className="text-9xl"> {count}</span>{" "}
+      {/* aqui ya esta el counter renderizandose */}
       <div className="flex">
         <button
           onClick={incrementar}

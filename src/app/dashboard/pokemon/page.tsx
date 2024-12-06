@@ -2,6 +2,13 @@ import PokemonGrid from "@/pokemons/components/PokemonGrid";
 import { PokemonsResponse } from "@/pokemons/interfaces/pokemons-response";
 import { SimplePokemon } from "@/pokemons/interfaces/simple-pokemon";
 
+
+
+
+export const metadata = {
+  title: "151 pokemons",
+  description: "Esta es la pagina de prueba como seria las pokemones",
+}
 const getPokemons = async (
   limit = 200,
   offset = 0
