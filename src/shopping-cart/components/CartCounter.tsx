@@ -1,7 +1,7 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { addOne, sustractOne } from "@/store/counter/counterSlice";
-import { useState } from "react";
+import { addOne, sustractOne, initCounterState } from "@/store/counter/counterSlice";
+import { useEffect, useState } from "react";
 
 interface ValueProps {
   value?: number;
@@ -20,6 +20,10 @@ const CartCounter = ({ value = 35 }: ValueProps) => {
 
   const count = useAppSelector((state) => state.counter.value); // value es el valor incial que colocamos en el counterSlider
   const dispatch = useAppDispatch();
+
+  useEffect(() => { //agregamos esto para que al recargar la pagina se mantenga el valor
+  dispatch( initCounterState(value))
+  }, [dispatch, value])
 
   return (
     <>
