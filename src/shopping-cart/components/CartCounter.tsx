@@ -1,29 +1,51 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { addOne, sustractOne, initCounterState } from "@/store/counter/counterSlice";
+import {
+  addOne,
+  sustractOne,
+  initCounterState,
+} from "@/store/counter/counterSlice";
 import { useEffect, useState } from "react";
 
 interface ValueProps {
   value?: number;
 }
 
+export interface CounterResponse {
+  method: string;
+  count: number;
+}
+
+const getApiCounter = async (): Promise<CounterResponse> => {
+  //esta es la funcion para solicitar a la api delcontador
+  const data = await fetch("/api/counter").then((response) => response.json());
+  console.log(data);
+  return data;
+};
+
+
+
 const CartCounter = ({ value = 35 }: ValueProps) => {
   /*   const [count, setCount] = useState(value); */ //eliminamos el contador anterior basico para agregar tolkit;
 
-    function incrementar() {
-      dispatch(addOne())
+  function incrementar() {
+    dispatch(addOne());
   }
 
   function decrementar() {
-    dispatch(sustractOne())
-  } 
+    dispatch(sustractOne());
+  }
 
   const count = useAppSelector((state) => state.counter.value); // value es el valor incial que colocamos en el counterSlider
   const dispatch = useAppDispatch();
 
-  useEffect(() => { //agregamos esto para que al recargar la pagina se mantenga el valor
+  /*   useEffect(() => { //agregamos esto para que al recargar la pagina se mantenga el valor
   dispatch( initCounterState(value))
-  }, [dispatch, value])
+  }, [dispatch, value]) */
+
+  useEffect(() => {
+    getApiCounter().then(({ count }) => dispatch(initCounterState(count)));
+  }, [dispatch]);
 
   return (
     <>

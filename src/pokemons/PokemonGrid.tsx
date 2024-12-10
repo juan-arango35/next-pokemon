@@ -1,4 +1,4 @@
-import { SimplePokemon } from "../interfaces/simple-pokemon";
+import { SimplePokemon } from "./interfaces/simple-pokemon";
 import PokemonCard from "./PokemonCard";
 
 interface Props {
@@ -10,7 +10,6 @@ const PokemonGrid = ({ pokemons }: Props) => {
     <div className="flex flex-wrap gap-10 items-center justify-center">
       {pokemons.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
-        
       ))}
     </div>
   );

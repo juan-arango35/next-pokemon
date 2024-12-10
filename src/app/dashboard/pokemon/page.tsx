@@ -1,14 +1,11 @@
-import PokemonGrid from "@/pokemons/components/PokemonGrid";
+import PokemonGrid from "@/pokemons/PokemonGrid";
 import { PokemonsResponse } from "@/pokemons/interfaces/pokemons-response";
 import { SimplePokemon } from "@/pokemons/interfaces/simple-pokemon";
-
-
-
 
 export const metadata = {
   title: "151 pokemons",
   description: "Esta es la pagina de prueba como seria las pokemones",
-}
+};
 const getPokemons = async (
   limit = 200,
   offset = 0
@@ -33,7 +30,7 @@ const PokemonsPage = async () => {
       <span className="text-5xl my-2">
         Listado de Pokemons <small>Estatico</small>{" "}
       </span>
-      <PokemonGrid pokemons={pokemons}  />
+      <PokemonGrid pokemons={pokemons} />
     </div>
   );
 };

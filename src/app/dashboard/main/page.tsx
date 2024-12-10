@@ -1,4 +1,5 @@
-import { SimpleWidget } from '@/pokemons/components/SimpleWidget'
+
+import WidgetsGrid from '@/components/dashboard/WidgetsGrid';
 import React from 'react'
 
 
@@ -13,11 +14,7 @@ const MainPage = () => {
       <h1 className='mt-2 text-3xl'>Dashboar-main</h1>
       <span className='text-xl '>Informacion general de la aplicacion principal</span>
 
-      <div className='flex flex-wrap p-2'>
-        <SimpleWidget/>
-    
-
-      </div>
+      <WidgetsGrid/>
     </div>
   )
 }
