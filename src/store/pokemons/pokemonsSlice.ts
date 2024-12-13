@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { SimplePokemon } from "../../pokemons/interfaces/simple-pokemon";
 
+
 /*
 vamos a tratar de colocar de est forma a los pokemones para hacer que sean favoritos encontrarlos y borrarlos o hacer algo con ellos
 
@@ -15,8 +16,15 @@ interface PokemonStateFavorites {
   [key: string]: SimplePokemon;
 }
 
+const getInitialState=():PokemonStateFavorites=>{
+  const favotites = JSON.parse(localStorage.getItem("favorites-pokemons") ?? "{}"); // esto es por que al inical no hay nada entonces da {}
+return favotites
+}
+
 const initialState: PokemonStateFavorites = {
-/*   "1": { id: "1", name: "bulbasaur" }, */ // valor inicial por defecto
+  ...getInitialState(),
+  /*   "1": { id: "1", name: "bulbasaur" }, */
+  // valor inicial por defecto
 };
 
 const pokemonsSlice = createSlice({
@@ -28,9 +36,13 @@ const pokemonsSlice = createSlice({
       const { id } = pokemon;
       if (state[id]) {
         delete state[id];
-        return;
+        /*   return; */
+      } else {
+        state[id] = pokemon;
       }
-      state[id] = pokemon;
+
+      // hay otra forma mas compleja con midleware pero es mas compleja
+      localStorage.setItem("favorites-pokemons", JSON.stringify(state));
     },
   },
 });
