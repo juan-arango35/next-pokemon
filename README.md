@@ -38,4 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 NOTA: EN ESTE PROYECTO ESTA LAS RUTAS EN UN SIDEBAR LATERAL PARA HACER UNA NAVEGACION -REVISAR LA ESTRUCTURA DE CARPTAS
 
-me falta ver el video 93-fernando herrrera
+me falta ver el video 97-fernando herrrera

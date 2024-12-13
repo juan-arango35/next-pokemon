@@ -16,7 +16,7 @@ interface PokemonStateFavorites {
 }
 
 const initialState: PokemonStateFavorites = {
-  "1": { id: "1", name: "bulbasaur" }, // valor inicial por defecto
+/*   "1": { id: "1", name: "bulbasaur" }, */ // valor inicial por defecto
 };
 
 const pokemonsSlice = createSlice({
